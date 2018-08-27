@@ -1,0 +1,7 @@
+{# empty Twig template #}
+{% for image in images %}
+
+    {{dump(image)}}
+    {{image.fkVoitureUpload.marque}}
+    <a href="{{ asset('uploads/images/' ~ image.image) }}">View brochure (PDF)</a>
+{%endfor%}

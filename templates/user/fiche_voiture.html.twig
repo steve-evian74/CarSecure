@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User index{% endblock %}
+
+{% block body %}
+    <h1> Fiche de voiture </h1>
+
+    {{ form_start(form) }}
+    {{ form_row(form.marque, { 'attr': {'class': 'form-control', 'placeholder':'Marque' } } ) }}
+    {{ form_row(form.modele, { 'attr': {'class': 'form-control', 'placeholder':'Marque' } } ) }}
+    {{ form_row(form.finition, { 'attr': {'class': 'form-control', 'placeholder':'Marque' } } ) }}
+    {{ form_row(form.dateAchat, { 'attr': {'class': 'form-control', 'placeholder':'Marque' } } ) }}
+    {{ form_row(form.kilometre, { 'attr': {'class': 'form-control', 'placeholder':'Marque' } } ) }}
+    {{ form_row(form.energie, { 'attr': {'class': 'form-control', 'placeholder':'Marque' } } ) }}
+    {{ form_row(form.cvFiscale, { 'attr': {'class': 'form-control', 'placeholder':'Marque' } } ) }}
+    {{ form_row(form.cvDin, { 'attr': {'class': 'form-control', 'placeholder':'Marque' } } ) }}
+    {{ form_row(form.description, { 'attr': {'class': 'form-control', 'placeholder':'Marque' } } ) }}
+    {{ form_row(form.vente, { 'attr': {'class': 'form-control', 'placeholder':'Marque' } } ) }}
+
+    <button class="btn">{{ button_label|default('Update') }}</button>
+    {{ form_end(form) }}
+
+
+    <a href="{{ path('user_new') }}">Create new</a>
+
+    {% for voiture in voitures %}
+        {{dump(voiture)}}
+        {% for cartnetEntretien in voiture.fkCarnetEntretien %}
+            {{dump(cartnetEntretien)}}
+        {% endfor %}
+        {% for image in voiture.fkUploadVoitureImage %}
+            {%if loop.first%}
+                {{dump(image)}}
+            {%endif%}
+        {% endfor %}
+    {% endfor %}
+{% endblock %}

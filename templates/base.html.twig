@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <script src="http://code.jquery.com/jquery-latest.pack.js"></script>
+        <script src="{{ asset('js/bootstrap.js') }}"></script>
+          <script src="https://unpkg.com/popper.js"></script>
+        <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css" />
+        {% block stylesheets %}
+            <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+
+        {% endblock %}
+
+
+
+    </head>
+
+    <body>
+        {% block navigation %}
+            <nav class="navbar navbar-expand-lg  navbar-light bg-light">
+                <a class="navbar-brand" href="#">
+                    <img src="{{ asset('image/logo/logo.png') }}" width="140" class="d-inline-block align-top" alt="">
+                </a>
+
+                <div id="navbarNavDropdown" class="navbar-collapse collapse">
+                    <ul class="navbar-nav mr-auto">
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Les annonces</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Les actualités</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">A propos de nous</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contact</a>
+                        </li>
+
+                    </ul>
+                    <ul class="navbar-nav">
+
+                        {%if app.user%}
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    <img src="{{ asset('image/logo/account.png') }}" width="30" class="d-inline-block align-top" alt="">
+                                {{app.user.username}}
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="{{ path('gestion_compte', {'id': app.user.id}) }}">Gestion de compte</a>
+                                    <a class="dropdown-item" href="#">Mes véhicules</a>
+                                    <a class="dropdown-item" href="#">Mes galéries</a>
+                                    <a class="dropdown-item" href="#">Mes carnets entretiens</a>
+                                     <a class="dropdown-item" href="#">Mes annonces </a>
+                                    
+                                </div>
+                            </li> 
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ path('security_logout')}}">Se deconnecter</a>
+                            </li>
+                        {%else%}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ path('security_login')}}">Se connecter</a>
+                            </li>
+                        {%endif%}
+                    </ul>
+                </div>
+            </nav>
+        {% endblock %} {% block body %} {% endblock %} 
+        {% block javascripts %}
+            <script>
+                $("#plaqueImmatriculation").keyup(function () {
+                    var resultat = $("#plaqueImmatriculation").val();
+                    $('#plaqueImmatriculation').keypress(function (e) {
+                        var key = e.which;
+                        if (key == 13)  // the enter key code
+                        {
+                            window.location = "/carnet/entretien/recherche/" + resultat;
+                        }
+                    });
+                });
+
+                $("#plaqueImmatriculation").keyup(function () {
+                    var resultat = $("#plaqueImmatriculation").val();
+                    $('#rechercher').click(function () {
+                        window.location = "/carnet/entretien/recherche/" + resultat;
+                    });
+                });
+            </script>
+
+            <script src="{{ asset('/js/bootstrap.js') }}"></script>
+            <script src="{{ asset('/js/bootstrap.min.js') }}"></script> {% endblock %}
+        </body>
+
+    </html>

@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Voiture{% endblock %}
+
+{% block body %}
+    <h1>Vente {{voiture.marque}} {{voiture.modele}}</h1>
+    {{dump(voiture)}}
+
+
+    {#{ include('/voiture/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('voiture_index') }}">back to list</a>
+
+    {{ include('/voiture/_delete_form.html.twig') }#}
+
+    {{ form_start(form) }}
+    {{ form_row(form.marque, { 'attr': {'class': 'form-control', 'placeholder':'Marque' } } ) }}
+    {{ form_row(form.modele, { 'attr': {'class': 'form-control', 'placeholder':'Marque' } } ) }}
+    {{ form_row(form.finition, { 'attr': {'class': 'form-control', 'placeholder':'Marque' } } ) }}
+     {{ form_row(form.dateAchat, { 'attr': {'class': 'form-control', 'placeholder':'Marque' } } ) }}
+    {{ form_row(form.kilometre, { 'attr': {'class': 'form-control', 'placeholder':'Marque' } } ) }}
+    {{ form_row(form.energie, { 'attr': {'class': 'form-control', 'placeholder':'Marque' } } ) }}
+    {{ form_row(form.cvFiscale, { 'attr': {'class': 'form-control', 'placeholder':'Marque' } } ) }}
+    {{ form_row(form.cvDin, { 'attr': {'class': 'form-control', 'placeholder':'Marque' } } ) }}
+    {{ form_row(form.description, { 'attr': {'class': 'form-control', 'placeholder':'Marque' } } ) }}
+
+    <button class="btn">{{ button_label|default('Vente') }}</button>
+    {{ form_end(form) }}
+
+{% endblock %}

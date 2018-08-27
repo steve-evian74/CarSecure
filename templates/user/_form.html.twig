@@ -1,0 +1,17 @@
+{{ form_start(form) }}
+<div class="form-group">
+    {{ form_row(form.nom, { 'attr': {'class': 'form-control', 'placeholder':'Nom' } } ) }}
+</div>
+{{ form_row(form.prenom, { 'attr': {'class': 'form-control', 'placeholder':'Prenom'} } ) }}
+{{ form_row(form.adresse, { 'attr': {'class': 'form-control', 'placeholder':'Adresse'} } ) }}
+{{ form_row(form.codePostal, { 'attr': {'class': 'form-control', 'placeholder':'Code Postal'} } ) }}
+{{ form_row(form.ville, { 'attr': {'class': 'form-control', 'placeholder':'ville'} } ) }}
+{{ form_row(form.telFixe, { 'attr': {'class': 'form-control', 'placeholder':'Numéro fixe'}}) }}
+{{ form_row(form.telPortable, { 'attr': {'class': 'form-control', 'placeholder':'Numéro portable'}}) }}
+
+
+{{ form_row(form.username, { 'attr': {'class': 'form-control', 'placeholder':'Pseudo'}}) }}
+{{ form_row(form.email, { 'attr': {'class': 'form-control', 'placeholder':'Email'}}) }}
+{{ form_row(form.password , { 'attr': {'class': 'form-control', 'placeholder':'Mot de Passe'}}) }}
+<button class="btn orange"> {{ button_label|default('Save') }} </button>
+{{ form_end(form) }}

@@ -1,0 +1,47 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 27 août 2018, 14:30:14
+    Author     : Bailleul Steve
+*/
+
+nav.navbar {
+    background-color: #3F5378!important;
+}
+.navbar a:hover {
+    color: #FF9800!important;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: white;
+}
+
+.navbar .dropdown-menu.show {
+    background-color: #3F5378!important;
+    color: white!important;
+    margin-top: 9px;
+    border: none!important;
+    border-radius: 0;
+}
+
+a.dropdown-item
+{
+    color: white!important;
+}
+
+a.dropdown-item:hover
+{
+    background-color: transparent!important;
+}
+
+.navbar-light .navbar-nav .show>.nav-link {
+    color: #FF9800;
+}
+
+button.btn.orange , button.btn.orange a {
+    background-color: #FF9800!important;
+    color: white!important;
+}

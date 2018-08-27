@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit CategorieIntervention{% endblock %}
+
+{% block body %}
+    <h1>Edit CategorieIntervention</h1>
+
+    {{ include('categorie_intervention/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('categorie_intervention_index') }}">back to list</a>
+
+    {{ include('categorie_intervention/_delete_form.html.twig') }}
+{% endblock %}

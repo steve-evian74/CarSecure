@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New CarnetEntretien{% endblock %}
+
+{% block body %}
+    <h1>Create new CarnetEntretien</h1>
+    <div class="alert alert-warning" role="alert">
+        Avant d'entrer les champs, veuillez verifier la plaque immatriculation : {{id.immatriculation}}
+    </div>
+        La date d'intervention est de : {{date|date('d/m/Y')}}</br>
+        Vous êtes le garage de {{user.nomEntreprise}}
+    {{ include('carnet_entretien/_form.html.twig') }}
+
+    <a href="{{ path('carnet_entretien_index') }}">back to list</a>
+
+{% endblock %}
